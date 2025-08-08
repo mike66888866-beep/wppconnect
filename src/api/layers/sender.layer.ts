@@ -1124,27 +1124,6 @@ export class SenderLayer extends ListenerLayer {
     );
   }
 
-  /**
-   * Sends location to given chat id
-   * @category Chat
-   * @param to Chat id
-   * @param options location options
-   */
-  public async sendLocation(to: string, options: LocationMessageOptions);
-  /**
-   * Sends location to given chat id
-   * @category Chat
-   * @param to Chat id
-   * @param latitude Latitude
-   * @param longitude Longitude
-   * @param title Text caption
-   */
-  public async sendLocation(
-    to: string,
-    latitude: string,
-    longitude: string,
-    title: string
-  );
   public async sendLocation(
     to: string,
     options: any,
