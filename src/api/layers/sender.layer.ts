@@ -1147,23 +1147,12 @@ export class SenderLayer extends ListenerLayer {
   );
   public async sendLocation(
     to: string,
-    latitudeOrOptions: string | LocationMessageOptions,
-    longitude?: string,
-    title?: string
+    options: any,
   ) {
-    const options: LocationMessageOptions =
-      typeof latitudeOrOptions === 'string'
-        ? {
-            lat: latitudeOrOptions,
-            lng: longitude,
-            title: title,
-          }
-        : latitudeOrOptions;
-
     return await evaluateAndReturn(
       this.page,
       async ({ to, options }) => {
-        const result = await WPP.chat.sendLocationMessage(to, options);
+        const result = await WPP.chat.sendRawMessage(to, WPP.chat.prepareMessageButtons(options););
 
         return {
           ack: result.ack,
